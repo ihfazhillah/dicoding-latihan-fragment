@@ -1,5 +1,6 @@
 package com.ihfazh.latihanfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -111,7 +112,8 @@ public class DetailCategoryFragment extends Fragment {
         btnToProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                startActivity(intent);
             }
         });
 
