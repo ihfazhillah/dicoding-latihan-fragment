@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OpenPopupFragment"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Pilih Guru" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_options"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp"
+        >
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Muhammad Ihfazhillah"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/rb_ihf"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Abdurrohman Joko"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/rb_abd"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sa'duddin"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/rb_sad"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            style="?android:attr/buttonBarStyle"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="4dp"
+            />
+
+        <Button
+            android:id="@+id/btn_pilih"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pilih"
+            style="?android:attr/buttonBarStyle"
+            android:layout_weight="0.5"
+            android:layout_marginEnd="4dp"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

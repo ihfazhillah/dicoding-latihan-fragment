@@ -5,12 +5,14 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,6 +36,13 @@ public class DetailCategoryFragment extends Fragment {
     private Button btnToProfile, btnShowDialog;
 
     private String description = "";
+
+    OpenPopupFragment.OnOptionDialogListener optionDialogListener = new OpenPopupFragment.OnOptionDialogListener() {
+        @Override
+        public void onOptionChosen(String guru) {
+            Toast.makeText(getActivity(), "Kamu memilih guru: " + guru, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     public DetailCategoryFragment() {
         // Required empty public constructor
@@ -91,6 +100,10 @@ public class DetailCategoryFragment extends Fragment {
         btnShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                OpenPopupFragment openPopupFragment = new OpenPopupFragment();
+                FragmentManager fragmentManager = getChildFragmentManager();
+
+                openPopupFragment.show(fragmentManager, OpenPopupFragment.class.getSimpleName());
 
             }
         });
