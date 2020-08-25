@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,10 +13,10 @@ import android.widget.Button;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link homeFragment#newInstance} factory method to
+ * Use the {@link CategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class homeFragment extends Fragment implements View.OnClickListener {
+public class CategoryFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,9 +27,9 @@ public class homeFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    private Button to_category;
+    private Button to_lifestyle;
 
-    public homeFragment() {
+    public CategoryFragment() {
         // Required empty public constructor
     }
 
@@ -40,11 +39,11 @@ public class homeFragment extends Fragment implements View.OnClickListener {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment homeFragment.
+     * @return A new instance of fragment CategoryFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static homeFragment newInstance(String param1, String param2) {
-        homeFragment fragment = new homeFragment();
+    public static CategoryFragment newInstance(String param1, String param2) {
+        CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,38 +58,24 @@ public class homeFragment extends Fragment implements View.OnClickListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_category, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        to_category = view.findViewById(R.id.btn_to_category);
-        to_category.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_to_category:
-                FragmentManager fragmentManager = getFragmentManager();
-                if (fragmentManager != null){
-                    CategoryFragment categoryFragment = new CategoryFragment();
-                    fragmentManager
-                            .beginTransaction()
-                            .replace(R.id.frame_container, categoryFragment, CategoryFragment.class.getSimpleName())
-                            .addToBackStack(null)
-                            .commit();
-                }
-                break;
-        }
-
+        to_lifestyle = view.findViewById(R.id.to_lifestyle);
+        to_lifestyle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("Hello world");
+            }
+        });
     }
 }
